@@ -8,14 +8,14 @@ if(isset($_POST['login'])){
   $username = $_POST['username'];
   $password = $_POST['password'];
 //giving the logins from the signup
-  $query = mysqli_query($con, "SELECT * FROM login WHERE username = '".$_POST['username']."' 
+  $query = mysqli_query($con, "SELECT * FROM users WHERE username = '".$_POST['username']."' 
   AND password = '".$_POST['password']."'" );
-  echo "login successful ";
+  // echo "login successful ";
   $user = mysqli_fetch_array($query);
   if($user > 0){
       //we are linking the login page and the dashboard
-      $extra = "dashboard.php";
-      $_SESSION['loginid']=$user['loginid'];
+      $extra = "dash.php";
+      $_SESSION['loginid']=$user['userID'];
       $_SESSION['name']=$user['name'];
       $_SESSION['loggedin']=true;
       $_SESSION['password']=$user['password'];
@@ -25,8 +25,9 @@ if(isset($_POST['login'])){
   }
   // stay on the login page if the logins are not true
   else{
-      header("Location:index.php");
-      exit();
+    echo"login failed";
+    header("Location:index.php");
+    exit();
   }
 } 
 ?>
