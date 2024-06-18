@@ -23,7 +23,7 @@
                 </a>
             </li>
             <li class="active">
-                <a href="assets.html">
+                <a href="assets.php">
                     <i class="fa fa-suitcase" aria-hidden="true"></i>
                     <span>Assets</span>
                 </a>

@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -84,12 +87,34 @@
                         <th>SERIAL NO.</th>
                       </tr>
                     </thead>
-                    <tbody id="assetsTable"></tbody>
-                    <tfoot>
-                      <tr>
-                        <td colspan="7"><button>View all</button></td>
-                      </tr>
-                    </tfoot>
+                    <tbody id="assetsTable">
+                    <tbody>
+                    <?php
+                    include ("../configuration/db.php");
+
+                    // query the database for assets
+                    $sql = "SELECT * FROM asset_information";
+                    $result = $con->query($sql);
+
+                    // loop through the query results and display the data in a table row
+                    if ($result->num_rows > 0) {
+                        while($row = $result->fetch_assoc()) {
+                            echo "<tr><td>" . $row["assetID"] . "</td><td>" . $row["asset_name"] . "</td><td>" . $row["serial_no"] . "</td><td>" . $row["locationID"] . "</td><td>" . $row["Condition"] . "</td><td>" . $row["model"] . "</td><td>" . $row["categoryID"] . "</td></tr>";
+                        }
+                    } else {
+                        echo "No information  found.";
+                    }
+
+                    // close the database connection
+                    $con->close();
+                    ?>
+                </tbody>
+                        </tbody>
+                        <tfoot>
+                        <tr>
+                            <td colspan="7"><button>View all</button></td>
+                        </tr>
+                        </tfoot>
                   </table>
                 </div>
               </div>
