@@ -79,9 +79,29 @@
                             <th>CATEGORY</th>
                             <th>QUANTITY</th>
                             <th>PURCHASE DATE</th>
+                            <th>QUANTITY</th>
                         </tr>
                     </thead>
                     <tbody id="consumablesTable">
+                    <?php
+                    include ("../configuration/db.php");
+
+                    // query the database for assets
+                    $sql = "SELECT * FROM consumables";
+                    $result = $con->query($sql);
+
+                    // loop through the query results and display the data in a table row
+                    if ($result->num_rows > 0) {
+                        while($row = $result->fetch_assoc()) {
+                            echo "<tr><td>" . $row["categoryID"] . "</td><td>" . $row["consumableID"] . "</td><td>" . $row["name"] . "</td><td>" . $row["purchase_date"] . "</td><td>" . $row["quantity"] . "</td></tr>";
+                        }
+                    } else {
+                        echo "No information  found.";
+                    }
+
+                    // close the database connection
+                    $con->close();
+                    ?>
                     </tbody>
                     <tfoot>
                         <tr>
