@@ -17,37 +17,37 @@
             </li>
             <li>
             <li class="active">
-                <a href="dashboard.html">
+                <a href="dash.php">
                     <i class="fa fa-tachometer" aria-hidden="true"></i>
                     <span>Dashboard</span>
                 </a>
             </li>
             <li class="active">
-                <a href="assets.html">
+                <a href="assets.php">
                     <i class="fa fa-suitcase" aria-hidden="true"></i>
                     <span>Assets</span>
                 </a>
             </li>
             <li class="active">
-                <a href="locations.html">
+                <a href="locations.php">
                     <i class="fa fa-map-marker" aria-hidden="true"></i>
                     <span>Locations</span>
                 </a>
             </li>
             <li class="active">
-                <a href="consumables.html">
+                <a href="consumables.php">
                     <i class="fa fa-wpforms" aria-hidden="true"></i>
                     <span>Consumables</span>
                 </a>
             </li>
             <li class="active">
-                <a href="requests.html">
+                <a href="requests.php">
                     <i class="fa fa-comments" aria-hidden="true"></i>
                     <span>Requests</span>
                 </a>
             </li>
             <li class="active">
-                <a href="assetcat.html">
+                <a href="assetcategories.php">
                     <i class="fa fa-users" aria-hidden="true"></i>
                     <span>Asset Categories</span>
                 </a>

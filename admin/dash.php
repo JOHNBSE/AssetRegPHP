@@ -29,25 +29,25 @@
                 </a>
             </li>
             <li class="active">
-                <a href="locations.html">
+                <a href="locations.php">
                     <i class="fa fa-map-marker" aria-hidden="true"></i>
                     <span>Locations</span>
                 </a>
             </li>
             <li class="active">
-                <a href="consumables.html">
+                <a href="consumables.php">
                     <i class="fa fa-wpforms" aria-hidden="true"></i>
                     <span>Consumables</span>
                 </a>
             </li>
             <li class="active">
-                <a href="requests.html">
+                <a href="requests.php">
                     <i class="fa fa-comments" aria-hidden="true"></i>
                     <span>Requests</span>
                 </a>
             </li>
             <li class="active">
-                <a href="assetcat.html">
+                <a href="assetcat.php">
                     <i class="fa fa-users" aria-hidden="true"></i>
                     <span>Asset Categories</span>
                 </a>

@@ -30,37 +30,37 @@
         </li>
         <li></li>
         <li class="active">
-          <a href="dashboard.html">
+          <a href="dashboard.php">
             <i class="fa fa-tachometer" aria-hidden="true"></i>
             <span>Dashboard</span>
           </a>
         </li>
         <li class="active">
-                <a href="assets.html">
+                <a href="assets.php">
                     <i class="fa fa-suitcase" aria-hidden="true"></i>
                     <span>Assets</span>
                 </a>
             </li>
             <li class="active">
-                <a href="locations.html">
+                <a href="locations.php">
                     <i class="fa fa-map-marker" aria-hidden="true"></i>
                     <span>Locations</span>
                 </a>
             </li>
             <li class="active">
-                <a href="consumables.html">
+                <a href="consumables.php">
                     <i class="fa fa-wpforms" aria-hidden="true"></i>
                     <span>Consumables</span>
                 </a>
             </li>
             <li class="active">
-                <a href="requests.html">
+                <a href="requests.php">
                     <i class="fa fa-comments" aria-hidden="true"></i>
                     <span>Requests</span>
                 </a>
             </li>
             <li class="active">
-                <a href="assetcategories.html">
+                <a href="assetcategories.php">
                     <i class="fa fa-users" aria-hidden="true"></i>
                     <span>Asset Categories</span>
                 </a>
@@ -88,15 +88,36 @@
           <table>
             <thead>
               <tr>
+                <th>DEPARTMENT ID</th>
+                <th>LOCATION ID</th>
                 <th>LOCATION NAME</th>
                 <th>ROOM NUMBER</th>
-                <th>DEPARTMENT</th>
               </tr>
             </thead>
-            <tbody id="locationsTbody"></tbody>
+            <tbody id="locationsTbody">
+            <?php
+                    include ("../configuration/db.php");
+
+                    // query the database for assets
+                    $sql = "SELECT * FROM location";
+                    $result = $con->query($sql);
+
+                    // loop through the query results and display the data in a table row
+                    if ($result->num_rows > 0) {
+                        while($row = $result->fetch_assoc()) {
+                            echo "<tr><td>" . $row["departmentID"] . "</td><td>" . $row["locationID"] . "</td><td>" . $row["location_name"] . "</td><td>" . $row["room_no"] . "</td></tr>";
+                        }
+                    } else {
+                        echo "No information  found.";
+                    }
+
+                    // close the database connection
+                    $con->close();
+                    ?>
+            </tbody>
             <tfoot>
               <tr>
-                <td colspan="7"><button>View all</button></td>
+                <td colspan="4"><button>View all</button></td>
               </tr>
             </tfoot>
           </table>

@@ -36,25 +36,25 @@
           </a>
         </li>
         <li class="active">
-                <a href="assets.html">
+                <a href="assets.php">
                     <i class="fa fa-suitcase" aria-hidden="true"></i>
                     <span>Assets</span>
                 </a>
             </li>
             <li class="active">
-                <a href="locations.html">
+                <a href="locations.php">
                     <i class="fa fa-map-marker" aria-hidden="true"></i>
                     <span>Locations</span>
                 </a>
             </li>
             <li class="active">
-                <a href="consumables.html">
+                <a href="consumables.php">
                     <i class="fa fa-wpforms" aria-hidden="true"></i>
                     <span>Consumables</span>
                 </a>
             </li>
             <li class="active">
-                <a href="requests.html">
+                <a href="requests.php">
                     <i class="fa fa-comments" aria-hidden="true"></i>
                     <span>Requests</span>
                 </a>
@@ -98,7 +98,27 @@
                 <th>OPTION</th>
               </tr>
             </thead>
-            <tbody id="openRequests"></tbody>
+            <tbody id="openRequests">
+              <?php
+              include ("../configuration/db.php");
+
+              // query the database for assets
+              $sql = "SELECT * FROM requests WHERE status = 'pending'";
+              $result = $con->query($sql);
+
+              // loop through the query results and display the data in a table row
+              if ($result->num_rows > 0) {
+                  while($row = $result->fetch_assoc()) {
+                      echo "<tr><td>" . $row["assetID"] . "</td><td>" . $row["asset_name"] . "</td><td>" . $row["serial_no"] . "</td><td>" . $row["locationID"] . "</td><td>" . $row["Condition"] . "</td><td>" . $row["model"] . "</td><td>" . $row["categoryID"] . "</td></tr>";
+                  }
+              } else {
+                  echo "No information  found.";
+              }
+
+              // close the database connection
+              $con->close();
+              ?>
+            </tbody>
             <tfoot>
               <tr>
                 <td colspan="7"><button>View all</button></td>
@@ -123,7 +143,27 @@
                 <th>OPTION</th>
               </tr>
             </thead>
-            <tbody id="closedRequests"></tbody>
+            <tbody id="closedRequests">
+            <?php
+              include ("../configuration/db.php");
+
+              // query the database for assets
+              $sql = "SELECT * FROM requests WHERE status = 'resolved'";
+              $result = $con->query($sql);
+
+              // loop through the query results and display the data in a table row
+              if ($result->num_rows > 0) {
+                  while($row = $result->fetch_assoc()) {
+                      echo "<tr><td>" . $row["assetID"] . "</td><td>" . $row["asset_name"] . "</td><td>" . $row["serial_no"] . "</td><td>" . $row["locationID"] . "</td><td>" . $row["Condition"] . "</td><td>" . $row["model"] . "</td><td>" . $row["categoryID"] . "</td></tr>";
+                  }
+              } else {
+                  echo "No information  found.";
+              }
+
+              // close the database connection
+              $con->close();
+              ?>
+            </tbody>
             <tfoot>
               <tr>
                 <td colspan="7"><button>View all</button></td>
