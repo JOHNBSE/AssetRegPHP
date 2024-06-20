@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -67,7 +70,7 @@
             <div class="new_button">
                 <a href="../forms/consumablesform.html">Create new</a>
             </div>
-             <div class="back"><button><a href="./dashboard.html">BACK</a></button></div>
+             <div class="back"><button><a href="./dash.php">BACK</a></button></div>
         </div>
         <div class="tabular-wrapper">
 

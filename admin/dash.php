@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -17,7 +20,7 @@
             </li>
             <li>
             <li class="active">
-                <a href="dashboard.html">
+                <a href="dash.php">
                     <i class="fa fa-tachometer" aria-hidden="true"></i>
                     <span>Dashboard</span>
                 </a>
@@ -47,7 +50,7 @@
                 </a>
             </li>
             <li class="active">
-                <a href="assetcat.php">
+                <a href="assetcategories.php">
                     <i class="fa fa-users" aria-hidden="true"></i>
                     <span>Asset Categories</span>
                 </a>
@@ -67,31 +70,31 @@
                 <i class="fa fa-user"></i>
                 <h3>Assets</h3>
                 <p id="asset_no">1000</p>
-                <button><a href="./assets.html">view all</a></button>
+                <button><a href="./assets.php">view all</a></button>
             </div>
             <div class="card">
                 <i class="fa fa-user"></i>
                 <h3>Locations</h3>
                 <p id="location_no">1000</p>
-                <button><a href="./locations.html">View All</a></button>
+                <button><a href="./locations.php">View All</a></button>
             </div>
             <div class="card">
                 <i class="fa fa-user"></i>
                 <h3>Consumables</h3>
                 <p id="consumables_no">1000</p>
-                <button><a href="./consumables.html">View All</a></button>
+                <button><a href="./consumables.php">View All</a></button>
             </div>
             <div class="card">
                 <i class="fa fa-user"></i>
                 <h3>Requests</h3>
                 <p id="requests_no">1000</p>
-                <button><a href="./requests.html">View All</a></button>
+                <button><a href="./requests.php">View All</a></button>
             </div>
             <div class="card">
                 <i class="fa fa-user"></i>
                 <h3>Asset Categories</h3>
                 <p id="category_no">1000</p>
-                <button><a href="./assetcat.html">View All</a></button>
+                <button><a href="./assetcategories.php">View All</a></button>
             </div>
         </div>
         <div>

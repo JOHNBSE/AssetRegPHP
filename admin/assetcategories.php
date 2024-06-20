@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -29,7 +32,7 @@
           <span>ADMIN</span>
         </li>
         <li class="active">
-          <a href="dashboard.php">
+          <a href="dash.php">
             <i class="fa fa-tachometer" aria-hidden="true"></i>
             <span>Dashboard</span>
           </a>
@@ -59,7 +62,7 @@
                 </a>
             </li>
             <li class="active">
-                <a href="assetcat.php">
+                <a href="assetcategories.php">
                     <i class="fa fa-users" aria-hidden="true"></i>
                     <span>Asset Categories</span>
                 </a>
@@ -81,7 +84,7 @@
           <a href="../forms/assetcatform.html">Create new</a>
         </div>
         <div class="back">
-          <button><a href="./dashboard.html">BACK</a></button>
+          <button><a href="./dash.php">BACK</a></button>
         </div>
       </div>
       <div class="tabular-wrapper">
@@ -117,7 +120,7 @@
             </tbody>
             <tfoot>
               <tr>
-                <td colspan="2"><button>View all</button></td>
+                <td colspan="3"><button>View all</button></td>
               </tr>
             </tfoot>
           </table>

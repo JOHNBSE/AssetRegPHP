@@ -33,7 +33,7 @@ session_start();
         </li>
         <li></li>
         <li class="active">
-          <a href="dashboard.html">
+          <a href="dash.php">
             <i class="fa fa-tachometer" aria-hidden="true"></i>
             <span>Dashboard</span>
           </a>
@@ -63,7 +63,7 @@ session_start();
                 </a>
             </li>
             <li class="active">
-                <a href="assetcat.html">
+                <a href="assetcategories.php">
                     <i class="fa fa-users" aria-hidden="true"></i>
                     <span>Asset Categories</span>
                 </a>
@@ -83,7 +83,7 @@ session_start();
           <a href="../forms/requestsform.html">Create new</a>
         </div>
         <div class="back">
-          <button><a href="./dashboard.html">BACK</a></button>
+          <button><a href="./dash.php">BACK</a></button>
         </div>
       </div>
       <div class="tabular-wrapper">
