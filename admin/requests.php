@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -109,7 +112,7 @@
               // loop through the query results and display the data in a table row
               if ($result->num_rows > 0) {
                   while($row = $result->fetch_assoc()) {
-                      echo "<tr><td>" . $row["assetID"] . "</td><td>" . $row["asset_name"] . "</td><td>" . $row["serial_no"] . "</td><td>" . $row["locationID"] . "</td><td>" . $row["Condition"] . "</td><td>" . $row["model"] . "</td><td>" . $row["categoryID"] . "</td></tr>";
+                      echo "<tr><td>" . $row["date_requested"] . "</td><td>" . $row["requestID"] . "</td><td>" . $row["service_required"] . "</td><td>" . $row["status"] . "</td><td>" . $row["timeout"] . "</td><td>" . $row["title"] . "</td><td>" . $row["userID"] . "</td></tr>";
                   }
               } else {
                   echo "No information  found.";
@@ -154,7 +157,7 @@
               // loop through the query results and display the data in a table row
               if ($result->num_rows > 0) {
                   while($row = $result->fetch_assoc()) {
-                      echo "<tr><td>" . $row["assetID"] . "</td><td>" . $row["asset_name"] . "</td><td>" . $row["serial_no"] . "</td><td>" . $row["locationID"] . "</td><td>" . $row["Condition"] . "</td><td>" . $row["model"] . "</td><td>" . $row["categoryID"] . "</td></tr>";
+                    echo "<tr><td>" . $row["date_requested"] . "</td><td>" . $row["requestID"] . "</td><td>" . $row["service_required"] . "</td><td>" . $row["status"] . "</td><td>" . $row["timeout"] . "</td><td>" . $row["title"] . "</td><td>" . $row["userID"] . "</td></tr>";
                   }
               } else {
                   echo "No information  found.";
