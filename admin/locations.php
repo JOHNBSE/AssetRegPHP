@@ -80,7 +80,7 @@ session_start();
       <div>
         <h3>Locations</h3>
         <div class="new_button">
-          <a href="../forms/locationsform.html">Create new</a>
+          <a href="../forms/locationsform.php">Create new</a>
         </div>
         <div class="back">
           <button><a href="./dash.php">BACK</a></button>

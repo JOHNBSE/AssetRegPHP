@@ -81,7 +81,7 @@ session_start();
       <div>
         <h3>Asset Categories</h3>
         <div class="new_button">
-          <a href="../forms/assetcatform.html">Create new</a>
+          <a href="../forms/assetcategoriesform.php">Create new</a>
         </div>
         <div class="back">
           <button><a href="./dash.php">BACK</a></button>
