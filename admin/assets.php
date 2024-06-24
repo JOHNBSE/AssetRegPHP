@@ -80,11 +80,11 @@ session_start();
                       <tr>
                         <th>ASSET ID</th>
                         <th>NAME</th>
-                        <th>CATEGORY</th>
-                        <th>CONDITION</th>
-                        <th>LOCATION</th>
-                        <th>MODEL</th>
                         <th>SERIAL NO.</th>
+                        <th>LOCATION</th>
+                        <th>CONDITION</th>
+                        <th>MODEL</th>
+                        <th>CATEGORY</th>
                       </tr>
                     </thead>
                     <tbody id="assetsTable">

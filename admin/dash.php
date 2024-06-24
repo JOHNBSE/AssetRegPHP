@@ -112,17 +112,35 @@ session_start();
                 <table>
                     <thead>
                         <tr>
+                            <th>ID</th>
                             <th>Name</th>
-                            <th>Category</th>
+                            <th>CategoryID</th>
                             <th>Model</th>
-                            <th>Serial No</th>
+                            <th>Serial No.</th>
                             <th>Location</th>
-                            <th>Status</th>
-                            <th>Actions</th>
+                            <th>Condition</th>
                         </tr>
                     </thead>
                     <tbody id="tableBody">
-                
+                    <?php
+                    include ("../configuration/db.php");
+
+                    // query the database for assets
+                    $sql = "SELECT * FROM asset_information";
+                    $result = $con->query($sql);
+
+                    // loop through the query results and display the data in a table row
+                    if ($result->num_rows > 0) {
+                        while($row = $result->fetch_assoc()) {
+                            echo "<tr><td>".$row["assetID"] ."</td><td>". $row["asset_name"] . "</td><td>" . $row["categoryID"] . "</td><td>" . $row["model"] . "</td><td>" . $row["serial_no"] . "</td><td>" . $row["locationID"] . "</td><td>" . $row["Condition"] ."</td></tr>";
+                        }
+                    } else {
+                        echo "No information  found.";
+                    }
+
+                    // close the database connection
+                    $con->close();
+                    ?>
                     </tbody>
                     <tfoot>
                         <tr>

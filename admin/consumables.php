@@ -68,7 +68,7 @@ session_start();
         <div>
             <h3>Consumables</h3>
             <div class="new_button">
-                <a href="../forms/consumablesform.html">Create new</a>
+                <a href="../forms/consumablesform.php">Create new</a>
             </div>
              <div class="back"><button><a href="./dash.php">BACK</a></button></div>
         </div>
