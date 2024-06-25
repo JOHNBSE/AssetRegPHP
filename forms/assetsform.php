@@ -2,16 +2,16 @@
 session_start();
  include "../configuration/db.php";
 
- if(isset($_POST['submitBtn'])){
+ if(isset($_POST['submit'])){
 	$asset_id = $_POST['id'];
 	$name = $_POST['name'];
 	$serial_no = $_POST['serial_no'];
-  $location = $_POST[""];
+  $location = $_POST["location"];
   $condition = $_POST["status"];
   $model = $_POST["model"];
   $cat_id = $_POST["category"];
 
-	$query = mysqli_query($con,"INSERT INTO assets(assetID,asset_name,serial_no,locationID,Condition,model,category)values($asset_id,'$name','$serial_no','$location','$condition','$model','$cat_id')");
+	$query = mysqli_query($con,"INSERT INTO asset_information(assetID,asset_name,serial_no,locationID,Condition,model,category)values($asset_id,'$name','$serial_no','$location','$condition','$model','$cat_id')");
  }
 
 ?>
@@ -84,42 +84,44 @@ session_start();
   ADD NEW ASSET
  </div>
    <div class="wrapper">
+   <form method = "post">
     <div class="form">
       <div class="back">
-        <button><a href="../html/locations.html">BACK</a></button>
+        <button><a href="../admin/">BACK</a></button>
        </div>
        <div class="input_field">
           <label>Asset ID</label>
-          <input type="text" id="id" class="input" />
+          <input type="text" name="id" id = "id" class="input" />
         </div>
         <div class="input_field">
           <label>Name</label>
-          <input type="text" id="name" class="input" />
-        </div>
-        <div class="input_field">
-          <label>Category</label>
-          <input type="text" id="category" class="input" />
-        </div>
-        <div class="input_field">
-          <label>Model</label>
-          <input type="text" id="model" class="input" />
+          <input type="text" name="name" id = "name" class="input" />
         </div>
         <div class="input_field">
           <label>Serial No</label>
-          <input type="text" id="serial_no" class="input" />
+          <input type="text" name="serial_no" id = "serial_no" class="input" />
         </div>
         <div class="input_field">
           <label>Location</label>
-          <input type="text" id="location" class="input" />
+          <input type="text" name="location" id = "location" class="input" />
         </div>
         <div class="input_field">
           <label>Status</label>
-          <input type="text" id="status" class="input" />
+          <input type="text" name="status" id = "status" class="input" />
         </div>
         <div class="input_field">
-          <input type="submit" value="ADD" id="submitBtn" class="btn" />
+          <label>Model</label>
+          <input type="text" name="model" id = "model" class="input" />
+        </div>
+        <div class="input_field">
+          <label>Category</label>
+          <input type="text" name="category" id = "category" class="input" />
+        </div>
+        <div class="input_field">
+          <input type="submit" value="ADD" name="submit" class="btn" />
         </div>
       </div>
+   </form>
     </div>
     <script src="../scripts/assets.js"></script>
   </body>
