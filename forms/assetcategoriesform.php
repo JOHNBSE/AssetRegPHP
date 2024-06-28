@@ -1,3 +1,20 @@
+<?php 
+session_start();
+ include "../configuration/db.php";
+
+ if(isset($_POST['submit'])){
+	$asset_id = $_POST['id'];
+	$name = $_POST['name'];
+	$serial_no = $_POST['serial_no'];
+  $location = $_POST['location'];
+  $condition = $_POST['status'];
+  $model = $_POST['model'];
+  $cat_id = $_POST['category'];
+
+	$query = mysqli_query($con,"INSERT INTO asset_information('assetID','asset_name','serial_no','locationID','Condition','model','categoryID')values($asset_id,'$name','$serial_no','$location','$condition','$model','$cat_id')");
+ }
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
