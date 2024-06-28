@@ -3,15 +3,11 @@ session_start();
  include "../configuration/db.php";
 
  if(isset($_POST['submit'])){
-	$asset_id = $_POST['id'];
+	$cat_id = $_POST['id'];
 	$name = $_POST['name'];
-	$serial_no = $_POST['serial_no'];
-  $location = $_POST['location'];
-  $condition = $_POST['status'];
-  $model = $_POST['model'];
-  $cat_id = $_POST['category'];
+	$des = $_POST['description'];
 
-	$query = mysqli_query($con,"INSERT INTO asset_information('assetID','asset_name','serial_no','locationID','Condition','model','categoryID')values($asset_id,'$name','$serial_no','$location','$condition','$model','$cat_id')");
+	$query = mysqli_query($con,"INSERT INTO mydb.asset_category(`categoryID`,`category_name`,`description`)values('$cat_id','$name','$des')");
  }
 
 ?>
@@ -87,20 +83,26 @@ session_start();
     <div class="back">
         <a href="../forms/assetsform.html"><input type="submit" value="BACK" class="button"></a>
        </div>
+       <form method="post">
       <div class="form">
+      <div class="input_field">
+            <label>Category ID</label>
+            <input type="text" id = 'id' name = 'id' class="input">
+        </div>
         <div class="input_field">
             <label>Category Name</label>
-            <input type="text" class="input">
+            <input type="text" id = 'name' name = 'name' class="input">
         </div>
         <div class="input_field">
             <label>Description</label>
-            <input type="text" class="input">
+            <input type="text" id = 'description' name = 'description' class="input">
         </div>
         <div class="input_field">
     
-            <input type="submit" value="ADD" class="btn">
+            <input type="submit" name="submit" value="ADD" class="btn">
         </div>     
        </div>
+       </form>
    </div> 
 </body>
 </html>

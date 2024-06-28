@@ -1,3 +1,16 @@
+<?php 
+session_start();
+ include "../configuration/db.php";
+
+ if(isset($_POST['submit'])){
+	$loc_id = $_POST['id'];
+	$name = $_POST['name'];
+	$des = $_POST['description'];
+
+	$query = mysqli_query($con,"INSERT INTO mydb.asset_category(`locationID`,`location_name`,`description`)values('$loc_id','$name','$des')");
+ }
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>

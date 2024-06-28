@@ -11,7 +11,7 @@ session_start();
   $model = $_POST['model'];
   $cat_id = $_POST['category'];
 
-	$query = mysqli_query($con,"INSERT INTO asset_information('assetID','asset_name','serial_no','locationID','Condition','model','categoryID')values($asset_id,'$name','$serial_no','$location','$condition','$model','$cat_id')");
+	$query = mysqli_query($con,"INSERT INTO asset_information(`assetID`,`asset_name`,`serial_no`,`locationID`,`condition`,`model`,`categoryID`)values($asset_id,'$name','$serial_no','$location','$condition','$model','$cat_id')");
  }
 
 ?>
