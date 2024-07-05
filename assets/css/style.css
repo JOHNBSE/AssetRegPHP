@@ -31,7 +31,7 @@ input[type="submit"]:hover {
     background-color: #666;
 }
 .log_in input{
-    width: 100%;
+    width: 250px;
     display: block;
     padding: 20px;
     margin-right: 0;
