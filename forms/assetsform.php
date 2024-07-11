@@ -1,20 +1,3 @@
-<?php 
-session_start();
- include "../configuration/db.php";
-
- if(isset($_POST['submit'])){
-	$asset_id = $_POST['id'];
-	$name = $_POST['name'];
-	$serial_no = $_POST['serial_no'];
-  $location = $_POST['location'];
-  $condition = $_POST['status'];
-  $model = $_POST['model'];
-  $cat_id = $_POST['category'];
-
-	$query = mysqli_query($con,"INSERT INTO asset_information(`assetID`,`asset_name`,`serial_no`,`locationID`,`condition`,`model`,`categoryID`)values($asset_id,'$name','$serial_no','$location','$condition','$model','$cat_id')");
- }
-
-?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -24,6 +7,7 @@ session_start();
     <link rel="stylesheet" href="../assets/css/form.css">
     <link rel="stylesheet" href="../assets/css/dash.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"/>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 </head>
 <body>
   <div class="sidebar">
@@ -126,3 +110,34 @@ session_start();
     <script src="../scripts/assets.js"></script>
   </body>
 </html>
+
+<?php 
+session_start();
+ include "../configuration/db.php";
+
+ if(isset($_POST['submit'])){
+	$asset_id = $_POST['id'];
+	$name = $_POST['name'];
+	$serial_no = $_POST['serial_no'];
+  $location = $_POST['location'];
+  $condition = $_POST['status'];
+  $model = $_POST['model'];
+  $cat_id = $_POST['category'];
+
+	$query = mysqli_query($con,"INSERT INTO asset_information(`assetID`,`asset_name`,`serial_no`,`locationID`,`condition`,`model`,`categoryID`)values($asset_id,'$name','$serial_no','$location','$condition','$model','$cat_id')");
+  if($query){
+    ?>
+    <script>
+    swal({
+      title: "success",
+      text: "Data added",
+      icon: "success",
+      });
+    </script>
+    
+    <?php
+  }
+  
+}
+
+?>

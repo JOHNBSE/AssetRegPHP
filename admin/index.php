@@ -19,7 +19,7 @@ if(isset($_POST['login'])){
       $_SESSION['name']=$user['name'];
       $_SESSION['loggedin']=true;
       $_SESSION['password']=$user['password'];
-      
+      $_SESSION['status'] = "Log in successful";
       header("Location:$extra");
       exit();
   }
