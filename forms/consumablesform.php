@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="../assets/css/dash.css">
     <link rel="stylesheet" href="../assets/css/form.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"/>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 </head>
 <body>
     <div class="sidebar">
@@ -67,32 +68,64 @@
         ADD NEW CONSUMABLE
        </div>
    <div class="wrapper">
+    <form method="post">
     <div class="back">
         <a href="../forms/assetsform.html"><input type="submit" value="BACK" class="button"></a>
        </div>
     <div class="form">
         <div class="input_field">
+            <label>Category(ID)</label>
+            <input type="text" name='catid' id='catid' class="input">
+        </div>
+        <div class="input_field">
+            <label>ID</label>
+            <input type="text" name ='id' id = 'id'class="input">
+        </div>
+        <div class="input_field">
             <label>Name</label>
-            <input type="text" class="input">
-        </div>
-        <div class="input_field">
-            <label>Category</label>
-            <input type="text" class="input">
-        </div>
-        <div class="input_field">
-            <label>Quantity</label>
-            <input type="text" class="input">
+            <input type="text" name='name' id = 'name' class="input">
         </div>
         <div class="input_field">
             <label>Purchase date</label>
-            <input type="text" class="input">
+            <input type="date" name = 'date' id='date' class="input">
         </div>
         <div class="input_field">
-    
-            <input type="submit" value="ADD" class="btn">
+            <label>quantity</label>
+            <input type="text" name = 'qty' id="qty" class="input">
+        </div>
+        <div class="input_field">
+            <input type="submit" value="ADD" name ='submit' class="btn">
         </div>
         
     </div>
+</form>
    </div> 
+
 </body>
 </html>
+<?php 
+session_start();
+ include "../configuration/db.php";
+
+ if(isset($_POST['submit'])){
+	$cat_id = $_POST['catid'];
+    $consumable_id = $_POST['id'];
+	$name = $_POST['name'];
+	$date = $_POST['date'];
+    $quantity = $_POST['qty'];
+
+	$query = mysqli_query($con,"INSERT INTO consumables(`consumableID`,`name`,`categoryID`,`quantity`,`purchase_date`)values('$consumable_id','$name','$cat_id',$quantity,$date)");
+
+    if($query){
+        ?>
+        <script>
+        swal({
+          title: "success",
+          text: "Data added",
+          icon: "success",
+          });
+        </script>
+        <?php
+    }
+}
+?>

@@ -107,7 +107,6 @@
       </div>
    </form>
     </div>
-    <script src="../scripts/assets.js"></script>
   </body>
 </html>
 

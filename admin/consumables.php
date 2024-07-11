@@ -78,9 +78,9 @@ session_start();
                 <table>
                     <thead>
                         <tr>
+                            <th>CATEGORYID</th>
+                            <th>ID</th>
                             <th>NAME</th>
-                            <th>CATEGORY</th>
-                            <th>QUANTITY</th>
                             <th>PURCHASE DATE</th>
                             <th>QUANTITY</th>
                         </tr>

@@ -1,16 +1,3 @@
-<?php 
-session_start();
- include "../configuration/db.php";
-
- if(isset($_POST['submit'])){
-	$cat_id = $_POST['id'];
-	$name = $_POST['name'];
-	$des = $_POST['description'];
-
-	$query = mysqli_query($con,"INSERT INTO mydb.asset_category(`categoryID`,`category_name`,`description`)values('$cat_id','$name','$des')");
- }
-
-?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -20,6 +7,7 @@ session_start();
     <link rel="stylesheet" href="../assets/css/form.css">
     <link rel="stylesheet" href="../assets/css/dash.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"/>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 </head>
 <body>
     <div class="sidebar">
@@ -106,3 +94,31 @@ session_start();
    </div> 
 </body>
 </html>
+<?php 
+session_start();
+ include "../configuration/db.php";
+
+ if(isset($_POST['submit'])){
+	$cat_id = $_POST['id'];
+	$name = $_POST['name'];
+	$des = $_POST['description'];
+
+	$query = mysqli_query($con,"INSERT INTO mydb.asset_category(`categoryID`,`category_name`,`description`)values('$cat_id','$name','$des')");
+
+    if($query){
+        ?>
+        <script>
+        swal({
+          title: "success",
+          text: "Data added",
+          icon: "success",
+          });
+        </script>
+        
+        <?php
+
+    }
+ 
+}
+
+?>
