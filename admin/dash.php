@@ -11,14 +11,17 @@ session_start();
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"/>
 </head>
 <body>
-    <div class="sidebar">
-        <div class="logo"></div>
+    <!-- Sidebar -->
+    <aside class="sidebar" id="sidebar">
+        <div class="profile">
+            <!-- kept image src & ADMIN text unchanged -->
+            <img src="../assets/images/face.png" alt="profile picture">
+            <div class="profile-info">
+                <span class="profile-name">ADMIN</span>
+            </div>
+        </div>
+
         <ul class="menu">
-            <li>
-                <img style="border-radius:50%; height: 70px; width: 70px; position: fixed; position: sticky; padding-top: 0;" src="../assets/images/face.png">
-                <span>ADMIN</span>
-            </li>
-            <li>
             <li class="active">
                 <a href="dash.php">
                     <i class="fa fa-tachometer" aria-hidden="true"></i>
@@ -55,7 +58,7 @@ session_start();
                     <span>Asset Categories</span>
                 </a>
             </li>
-            </li>
+
             <li class="logout">
                 <a href="#">
                     <i class="fa fa-sign-out"></i>
@@ -63,8 +66,18 @@ session_start();
                 </a>
             </li>
         </ul>
-    </div>
-    <section class="main">
+    </aside>
+
+    <!-- Topbar (mobile only) -->
+    <header class="topbar">
+        <button class="menu-btn" id="openSidebar" aria-label="Open menu">
+            <i class="fa fa-bars"></i>
+        </button>
+        <h1 class="topbar-title">Dashboard</h1>
+    </header>
+
+    <!-- Main content -->
+    <main class="main" id="mainContent">
         <div class="stats">
             <div class="card">
                 <i class="fa fa-user"></i>
@@ -97,7 +110,8 @@ session_start();
                 <button><a href="./assetcategories.php">View All</a></button>
             </div>
         </div>
-        <div>
+
+        <div class="search-row">
             <label for="search">SEARCH</label>
             <span><input type="text" placeholder="Lookup Asset by tag or Category" id="searchValue"></span>
             <select id="searchType">
@@ -106,6 +120,7 @@ session_start();
             </select>
             <button id="searchBtn"><span><i class="fa fa-search"></i></span></button>
         </div>
+
         <div class="tabular-wrapper">
             <h3 class="main-title">Assets</h3>
             <div class="table-container">
@@ -151,7 +166,46 @@ session_start();
             </div>
 
         </div>
-    </section>
-    <!-- <script src="../scripts/dashboard.js"></script> -->
+    </main>
+
+    <!-- JS: sidebar toggle -->
+    <script>
+        (function() {
+            const sidebar = document.getElementById('sidebar');
+            const openBtn = document.getElementById('openSidebar');
+            const mainContent = document.getElementById('mainContent');
+
+            function openSidebar() {
+                sidebar.classList.add('open');
+                document.body.classList.add('no-scroll');
+            }
+            function closeSidebar() {
+                sidebar.classList.remove('open');
+                document.body.classList.remove('no-scroll');
+            }
+            // toggle via button
+            openBtn.addEventListener('click', function() {
+                if (sidebar.classList.contains('open')) {
+                    closeSidebar();
+                } else {
+                    openSidebar();
+                }
+            });
+
+            // close sidebar when clicking outside on small screens
+            mainContent.addEventListener('click', function() {
+                if (window.innerWidth <= 900 && sidebar.classList.contains('open')) {
+                    closeSidebar();
+                }
+            });
+
+            // close on ESC
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape' && sidebar.classList.contains('open')) {
+                    closeSidebar();
+                }
+            });
+        })();
+    </script>
 </body>
 </html>
