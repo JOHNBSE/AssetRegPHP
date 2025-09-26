@@ -1,4 +1,4 @@
-body {
+/* body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
@@ -62,4 +62,97 @@ h2{
     box-shadow: 8px 0px 80px -7px rgb(76, 218, 223);
     border-radius: 5%;
     
+}*/
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-image: linear-gradient(rgb(25, 77, 173), white);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Center page title */
+h2 {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 28px;
+    text-align: center;
+    margin-top: 20px;
+}
+
+/* Login box */
+.log_in {
+    background: transparent;
+    width: 90%;
+    max-width: 400px; /* don’t exceed 400px */
+    padding: 20px;
+    margin-top: 40px;
+    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+}
+
+/* Login heading */
+.log_in h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* Form styling */
+form {
+    background-color: #ddd;
+    border-radius: 8px;
+    padding: 20px;
+}
+
+/* Labels */
+label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+}
+
+/* Inputs */
+.log_in input {
+    width: 100%;  /* full width inside form */
+    padding: 12px;
+    margin-bottom: 15px;
+    outline: none;
+    border: none;
+    font-size: 16px;
+    border-radius: 8px;
+    text-align: center;
+}
+
+/* Submit button */
+input[type="submit"] {
+    background-color: #333;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+    padding: 12px;
+    width: 100%;
+    border-radius: 8px;
+    font-size: 16px;
+    transition: background 0.3s;
+}
+
+input[type="submit"]:hover {
+    background-color: #666;
+}
+
+/* 📱 Responsive tweaks */
+@media (max-width: 480px) {
+    h2 {
+        font-size: 24px;
+    }
+    .log_in {
+        margin-top: 20px;
+        padding: 15px;
+    }
+    .log_in input {
+        padding: 10px;
+        font-size: 14px;
+    }
 }
