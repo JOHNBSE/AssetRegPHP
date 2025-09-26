@@ -11,70 +11,45 @@ session_start();
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"/>
 </head>
 <body>
-    <!-- Sidebar -->
-    <aside class="sidebar" id="sidebar">
-        <div class="profile">
-            <!-- kept image src & ADMIN text unchanged -->
-            <img src="../assets/images/face.png" alt="profile picture">
-            <div class="profile-info">
-                <span class="profile-name">ADMIN</span>
-            </div>
-        </div>
-
-        <ul class="menu">
-            <li class="active">
-                <a href="dash.php">
-                    <i class="fa fa-tachometer" aria-hidden="true"></i>
-                    <span>Dashboard</span>
-                </a>
-            </li>
-            <li class="active">
-                <a href="assets.php">
-                    <i class="fa fa-suitcase" aria-hidden="true"></i>
-                    <span>Assets</span>
-                </a>
-            </li>
-            <li class="active">
-                <a href="locations.php">
-                    <i class="fa fa-map-marker" aria-hidden="true"></i>
-                    <span>Locations</span>
-                </a>
-            </li>
-            <li class="active">
-                <a href="consumables.php">
-                    <i class="fa fa-wpforms" aria-hidden="true"></i>
-                    <span>Consumables</span>
-                </a>
-            </li>
-            <li class="active">
-                <a href="requests.php">
-                    <i class="fa fa-comments" aria-hidden="true"></i>
-                    <span>Requests</span>
-                </a>
-            </li>
-            <li class="active">
-                <a href="assetcategories.php">
-                    <i class="fa fa-users" aria-hidden="true"></i>
-                    <span>Asset Categories</span>
-                </a>
-            </li>
-
-            <li class="logout">
-                <a href="#">
-                    <i class="fa fa-sign-out"></i>
-                    <span>Logout</span>
-                </a>
-            </li>
-        </ul>
-    </aside>
-
     <!-- Topbar (mobile only) -->
-    <header class="topbar">
-        <button class="menu-btn" id="openSidebar" aria-label="Open menu">
-            <i class="fa fa-bars"></i>
-        </button>
-        <h1 class="topbar-title">Dashboard</h1>
-    </header>
+<header class="topbar">
+    <button class="menu-btn" id="openSidebar" aria-label="Open menu">
+        <i class="fa fa-bars"></i>
+    </button>
+    <!-- <h1 class="topbar-title">Dashboard</h1> -->
+</header>
+
+<!-- Sidebar -->
+<div class="sidebar" id="sidebar">
+    <div class="logo"></div>
+    <ul class="menu">
+        <li>
+            <img src="../assets/images/face.png" style="border-radius:50%; height: 70px; width: 70px;">
+            <span>ADMIN</span>
+        </li>
+        <li class="active">
+            <a href="dash.php"><i class="fa fa-tachometer"></i><span>Dashboard</span></a>
+        </li>
+        <li class="active">
+            <a href="assets.php"><i class="fa fa-suitcase"></i><span>Assets</span></a>
+        </li>
+        <li class="active">
+            <a href="locations.php"><i class="fa fa-map-marker"></i><span>Locations</span></a>
+        </li>
+        <li class="active">
+            <a href="consumables.php"><i class="fa fa-wpforms"></i><span>Consumables</span></a>
+        </li>
+        <li class="active">
+            <a href="requests.php"><i class="fa fa-comments"></i><span>Requests</span></a>
+        </li>
+        <li class="active">
+            <a href="assetcategories.php"><i class="fa fa-users"></i><span>Asset Categories</span></a>
+        </li>
+        <li class="logout">
+            <a href="#"><i class="fa fa-sign-out"></i><span>Logout</span></a>
+        </li>
+    </ul>
+</div>
 
     <!-- Main content -->
     <main class="main" id="mainContent">
@@ -170,42 +145,22 @@ session_start();
 
     <!-- JS: sidebar toggle -->
     <script>
-        (function() {
-            const sidebar = document.getElementById('sidebar');
-            const openBtn = document.getElementById('openSidebar');
-            const mainContent = document.getElementById('mainContent');
+    const sidebar = document.getElementById('sidebar');
+    const openBtn = document.getElementById('openSidebar');
 
-            function openSidebar() {
-                sidebar.classList.add('open');
-                document.body.classList.add('no-scroll');
-            }
-            function closeSidebar() {
+    openBtn.addEventListener('click', () => {
+        sidebar.classList.toggle('open');
+    });
+
+    // Optional: close sidebar when clicking outside
+    document.addEventListener('click', (e) => {
+        if (window.innerWidth <= 900 && sidebar.classList.contains('open')) {
+            if (!sidebar.contains(e.target) && !openBtn.contains(e.target)) {
                 sidebar.classList.remove('open');
-                document.body.classList.remove('no-scroll');
             }
-            // toggle via button
-            openBtn.addEventListener('click', function() {
-                if (sidebar.classList.contains('open')) {
-                    closeSidebar();
-                } else {
-                    openSidebar();
-                }
-            });
+        }
+    });
+</script>
 
-            // close sidebar when clicking outside on small screens
-            mainContent.addEventListener('click', function() {
-                if (window.innerWidth <= 900 && sidebar.classList.contains('open')) {
-                    closeSidebar();
-                }
-            });
-
-            // close on ESC
-            document.addEventListener('keydown', function(e) {
-                if (e.key === 'Escape' && sidebar.classList.contains('open')) {
-                    closeSidebar();
-                }
-            });
-        })();
-    </script>
 </body>
 </html>

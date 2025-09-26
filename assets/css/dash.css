@@ -16,26 +16,31 @@ body.no-scroll {
   overflow: hidden;
 }
 
+/* Mobile: hide sidebar by default and show topbar */
+
+
+
+
 /* ========== Sidebar ========== */
-.sidebar {
-    position: fixed;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    width: 240px;
-    background: rgba(113,99,186,1);
-    color: #fff;
-    padding: 16px 12px;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    transition: transform 0.28s ease-in-out;
-    z-index: 1200;
-    transform: translateX(0);
-}
+
 
 /* Hidden state for mobile (closed) */
 .sidebar:not(.open) {
+    @media (max-width: 900px) {
+  .sidebar {
+      transform: translateX(-100%);
+      width: 260px;
+  }
+  .sidebar.open {
+      transform: translateX(20%);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+      position: fixed;
+  }
+
+  .topbar {
+      display: flex;
+  }
+}
     /* on small screens we'll translate it away with media queries */
 }
 
